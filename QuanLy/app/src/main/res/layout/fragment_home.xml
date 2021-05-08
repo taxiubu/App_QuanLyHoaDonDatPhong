@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".View.FragmentHome">
+    tools:context=".View.Fragment.FragmentHome">
     <View
         android:background="@color/blue"
         android:layout_width="match_parent"
@@ -66,17 +66,17 @@
             <TextView
                 android:textSize="@dimen/_13sdp"
                 android:layout_margin="@dimen/_10sdp"
-                android:text="DOANH THU NGÀY"
+                android:text="TỔNG HÓA ĐƠN THÁNG"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
-                android:id="@+id/tvRevenue"
+                android:id="@+id/tvCountAllOrder"
                 android:layout_marginTop="@dimen/_31sdp"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:textSize="@dimen/_17sdp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                android:text="2,738,424"
+                android:text="20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
@@ -90,14 +90,14 @@
                 android:layout_height="wrap_content"/>
             <View
                 android:layout_margin="@dimen/_10sdp"
-                android:layout_below="@id/tvRevenue"
+                android:layout_below="@id/tvCountAllOrder"
                 android:background="@color/white_trans"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_1sdp"/>
             <LinearLayout
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_20sdp"
-                android:layout_below="@id/tvRevenue"
+                android:layout_below="@id/tvCountAllOrder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:weightSum="3">
@@ -193,7 +193,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <RelativeLayout
-                android:id="@+id/btPending"
+                android:id="@+id/pending"
                 android:layout_margin="@dimen/_5sdp"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_27sdp">
@@ -233,7 +233,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_1sdp"/>
             <RelativeLayout
-                android:id="@+id/btCheck"
+                android:id="@+id/waitForPay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView

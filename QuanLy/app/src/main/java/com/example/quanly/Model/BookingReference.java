@@ -1,85 +1,94 @@
 package com.example.quanly.Model;
 
-public class BookingReference {
-    private String dateIn, dateOut, email, nameResidence, countRoom, phone;
+import java.io.Serializable;
+
+public class BookingReference implements Serializable {
+    private String dateIn, dateOut, email, nameResidence, countRoom,countPeople, phone;
     private String status;
     private String id;
-    public BookingReference(String id,String dateIn, String dateOut, String email, String phone, String nameResidence, String countRoom,String status) {
+    public BookingReference(String id,String dateIn, String dateOut, String email, String phone, String nameResidence, String countRoom,String countPeople,String status) {
         this.dateIn = dateIn;
         this.dateOut = dateOut;
         this.email = email;
         this.nameResidence = nameResidence;
         this.countRoom = countRoom;
+        this.countPeople = countPeople;
         this.phone=phone;
         this.status=status;
         this.id=id;
     }
-
     public BookingReference() {
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getDateIn() {
-        return dateIn;
     }
 
     public void setDateIn(String dateIn) {
         this.dateIn = dateIn;
     }
 
-    public String getDateOut() {
-        return dateOut;
-    }
-
     public void setDateOut(String dateOut) {
         this.dateOut = dateOut;
-    }
-
-    public String getEmail() {
-        return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public String getNameResidence() {
-        return nameResidence;
-    }
-
     public void setNameResidence(String nameResidence) {
         this.nameResidence = nameResidence;
-    }
-
-    public String getCountRoom() {
-        return countRoom;
     }
 
     public void setCountRoom(String countRoom) {
         this.countRoom = countRoom;
     }
 
+    public void setCountPeople(String countPeople) {
+        this.countPeople = countPeople;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getDateIn() {
+        return dateIn;
+    }
+
+    public String getDateOut() {
+        return dateOut;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getNameResidence() {
+        return nameResidence;
+    }
+
+    public String getCountRoom() {
+        return countRoom;
+    }
+
+    public String getCountPeople() {
+        return countPeople;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getId() {
+        return id;
+    }
 }

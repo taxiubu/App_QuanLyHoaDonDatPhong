@@ -1,16 +1,19 @@
-package com.example.quanly;
+package com.example.quanly.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.example.quanly.View.FragmentAccount;
-import com.example.quanly.View.FragmentHome;
-import com.example.quanly.View.FragmentOrder;
+import com.example.quanly.MyService;
+import com.example.quanly.R;
+import com.example.quanly.View.Fragment.FragmentAccount;
+import com.example.quanly.View.Fragment.FragmentHome;
+import com.example.quanly.View.Fragment.FragmentOrder;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity{
@@ -46,6 +49,7 @@ public class MainActivity extends AppCompatActivity{
                 return false;
             }
         });
+        startServices("");
     }
     public void getFragment(Fragment fragment){
         try{
@@ -58,5 +62,14 @@ public class MainActivity extends AppCompatActivity{
             e.printStackTrace();
             Log.d(TAG, "getFragment: "+e.getMessage());
         }
+    }
+    private void startServices(String content){
+        Intent intent= new Intent(this, MyService.class);
+        intent.putExtra("content",content);
+        startService(intent);
+    }
+    private void stopService(){
+        Intent intent= new Intent(this,MyService.class);
+        stopService(intent);
     }
 }

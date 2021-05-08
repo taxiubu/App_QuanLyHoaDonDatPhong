@@ -1,4 +1,4 @@
-package com.example.quanly.View;
+package com.example.quanly.View.Fragment;
 
 import android.os.Bundle;
 

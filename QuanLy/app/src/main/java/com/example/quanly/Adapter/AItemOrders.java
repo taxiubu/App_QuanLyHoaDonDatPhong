@@ -5,11 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.quanly.IOnClickItemOrders;
 import com.example.quanly.Model.BookingReference;
 import com.example.quanly.R;
 
@@ -18,10 +20,14 @@ import java.util.ArrayList;
 public class AItemOrders extends RecyclerView.Adapter<AItemOrders.ViewHoder>{
     private Context context;
     private ArrayList<BookingReference> list;
-
+    IOnClickItemOrders iOnClickItemOrders;
     public AItemOrders(Context context, ArrayList<BookingReference> list) {
         this.context = context;
         this.list = list;
+    }
+
+    public void setiOnClickItemOrders(IOnClickItemOrders iOnClickItemOrders) {
+        this.iOnClickItemOrders = iOnClickItemOrders;
     }
 
     @NonNull
@@ -49,11 +55,22 @@ public class AItemOrders extends RecyclerView.Adapter<AItemOrders.ViewHoder>{
             case "Đã thanh toán":
                 holder.imStatus.setBackgroundResource(R.drawable.ic_outline_monetization_on_24);
                 break;
+            default:
+                break;
         }
         if(position==0)
             holder.line.setVisibility(View.GONE);
+        holder.layoutItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                iOnClickItemOrders.onClickItem(b);
+            }
+        });
     }
-
+    public void filterList(ArrayList<BookingReference> filterList) {
+        list= filterList;
+        notifyDataSetChanged();
+    }
     @Override
     public int getItemCount() {
         return list.size();
@@ -63,13 +80,14 @@ public class AItemOrders extends RecyclerView.Adapter<AItemOrders.ViewHoder>{
         TextView tvOrderID,tvStatus,tvMoney;
         ImageView imStatus;
         View line;
+        RelativeLayout layoutItem;
         public ViewHoder(@NonNull View itemView) {
             super(itemView);
             tvOrderID=itemView.findViewById(R.id.tvOrderId);
             tvStatus=itemView.findViewById(R.id.tvStatus);
-            tvMoney=itemView.findViewById(R.id.tvMoney);
             imStatus=itemView.findViewById(R.id.imStatus);
             line=itemView.findViewById(R.id.line);
+            layoutItem=itemView.findViewById(R.id.layoutItem);
         }
     }
 }
